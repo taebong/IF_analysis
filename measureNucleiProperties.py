@@ -65,10 +65,13 @@ def normalize_image(im,low=None,high=None):
     
     return im    
 
-def subtractBg(im):
-    filtered = skimage.filters.gaussian(im,sigma=2)
-    h = np.histogram(filtered,bins=500);
-    bg = h[1][h[0].argmax()]
+def subtractBg(im,method='min'):
+    if method='mode':
+        filtered = skimage.filters.gaussian(im,sigma=2)
+        h = np.histogram(filtered,bins=500);
+        bg = h[1][h[0].argmax()]
+    elif method='min':
+        bg = im.flatten().min()
     im[im<bg] = bg
     im = im-bg
     return im
