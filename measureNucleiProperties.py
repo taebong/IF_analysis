@@ -45,7 +45,7 @@ def downsample(im,binning_factor):
     sz = np.array(im.shape)
     
     # if sz[0] and sz[1] are not multiples of BINNING_FACTOR, reduce them to the largest multiple of BINNING_FACTOR and crop image
-    newsz = (sz/binning_factor).astype(int)
+    newsz = sz//binning_factor
     cropsz = newsz*binning_factor
     im = im[0:cropsz[0],0:cropsz[1]]
 
