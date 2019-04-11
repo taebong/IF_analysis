@@ -137,8 +137,8 @@ df_props_all = pd.DataFrame()
 for ind,df in grp:
     well,pos = ind
     
-    fname_dapi = df.iloc[np.where(df['Ch']=='1')[0][0]]['Filename']
-    fname_gfp = df.iloc[np.where(df['Ch']=='2')[0][0]]['Filename']
+    fname_dapi = df.iloc[np.where(df['Ch']=='2')[0][0]]['Filename']
+    fname_gfp = df.iloc[np.where(df['Ch']=='1')[0][0]]['Filename']
 
     #downsample and bg-subtract
     im_dapi = downsample(imageio.imread(os.path.join(data_dir,fname_dapi)),binning_factor)
