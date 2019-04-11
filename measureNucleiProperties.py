@@ -21,7 +21,7 @@ if len(sys.argv) != 4:
 else:
     data_dir = sys.argv[1]  #data pth
     analysis_dir = sys.argv[2]    #analysis pth
-    binning_factor = sys.argv[3]
+    binning_factor = int(sys.argv[3])
 
 all_files = os.listdir(data_dir)
 regexp = re.compile('Well(?P<Well>\d*?)_(?P<Pos>\d*?)_w(?P<Ch>\d{1}).*.tif',re.IGNORECASE)
